@@ -36,7 +36,7 @@
   padding: 20px;
   font-size: 20px;
   font-family: Arial, sans-serif;
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
 }
