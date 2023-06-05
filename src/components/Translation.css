@@ -27,20 +27,6 @@
   justify-content: center;
 }
 
-/*.footer-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #161010;
-  color: #fff;
-  padding: 20px;
-  font-size: 20px;
-  font-family: Arial, sans-serif;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-} */
-
 .footer-container {
   display: flex;
   justify-content: center;

@@ -1,3 +1,6 @@
+# Visit deploy
+https://splendorous-shortbread-63d3c3.netlify.app/
+
 # Languages Translator
 
 This project is a simple language translator built using React. It allows you to enter text in any language and translates it to the selected target language. The translation is done using the Microsoft Translator Text API.
