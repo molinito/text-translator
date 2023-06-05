@@ -1,13 +1,25 @@
 .title {
   text-align: center;
   font-size: 4rem;
-  margin: 3rem;
+  margin: 2rem;
   color: #161010;
-  padding-top: 5%;
+  padding-top: 3%;
   font-family: 'Roboto', sans-serif;
 
 }
 
+.img {
+  width: 30%;
+  height: 30%;
+  margin: 0 auto;
+  display: block;
+  /* poner un borde superior del mismo ancho del row-wrapper */
+  border-top:  rgb(233, 233, 124) 10px solid;
+
+  
+
+  
+}
 
 .app {
   background-color: rgb(191, 255, 0);
@@ -28,11 +40,16 @@
   justify-content: center;
   align-items: center;
   background-color: #161010;
-  margin-top: 8.2rem;
   color: #fff;
   padding: 20px;
-  font-size: 18px;
+  font-size: 20px;
   font-family: Arial, sans-serif;
+  /* el footer se mantendrá siempre abajo */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  
+  
 }
 
 .footer-link {
@@ -55,13 +72,14 @@
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   flex: 1;
-  width: 600px;
+  width: 800px;
 }
 
 .top-row {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 10px;
+  font-size: large;
 }
 
 .btn-translate {
@@ -85,7 +103,10 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   resize: none;
+  font-size: large;
 }
+
+
 
 .icon-btn {
   position: absolute;
@@ -123,11 +144,6 @@
   color: #ff0000;
 }
 
-.img-container {
-  display: flex;
-  justify-content: center;
-
-}
 
 /* Estilos específicos para resaltar textos */
 .btn-translate:hover {
@@ -153,7 +169,7 @@
 }
 
 /* Estilos para dispositivos móviles */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 950px) {
   .row-wrapper {
     flex-direction: column;
     width: 100%;
@@ -165,6 +181,11 @@
 
   .title {
     font-size: 2.5rem;
+  }
+
+  .img {
+    width: 60%;
+    height: 60%;
   }
 
 }

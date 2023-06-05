@@ -27,9 +27,8 @@ const Translator = () => {
         },
         headers: {
           "content-type": "application/json",
-          "X-RapidAPI-Key":
-            "9583f74068msh0af8c54efacdc53p11318fjsna21a1acc2256",
-          "X-RapidAPI-Host": "microsoft-translator-text.p.rapidapi.com",
+          "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
+          "X-RapidAPI-Host": process.env.REACT_APP_API_HOST1,
         },
         data: [
           {
@@ -96,6 +95,7 @@ const Translator = () => {
   return (
     <div className="app bg-warning">
       <h1 className="title">Languages Translator</h1>
+      <img src={img} alt="img" className="img" />
       <section className="translator">
         <div className="row-wrapper">
           <div className="translator-container input-lang">
@@ -170,9 +170,7 @@ const Translator = () => {
           </div>
         </div>
       </section>
-      <div className="img-container">
-        <img src={img} alt="img" className="img" />
-      </div>
+      
 
       <div className="footer-container">
         <p className="footer-text">
