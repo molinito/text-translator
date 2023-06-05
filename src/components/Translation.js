@@ -5,21 +5,20 @@ import axios from "axios";
 import img from "../img/38.png";
 
 const Translator = () => {
-  const [inputText, setInputText] = useState("");
-  const [outputText, setOutputText] = useState("");
-  const [isTranslated, setIsTranslated] = useState("");
+  const [inputText, setInputText] = useState("");//input text state
+  const [outputText, setOutputText] = useState(""); //output text state
+  const [isTranslated, setIsTranslated] = useState(""); //translation state
 
-  const translate = async () => {
-    const encodedParams = new URLSearchParams();
-    //encodedParams.set("source_language", "en");
+  const translate = async () => { //translate function
+    const encodedParams = new URLSearchParams(); //URLSearchParams object
     encodedParams.set(
-      "target_language",
-      document.getElementById("languages").value
+      "target_language",//set target language
+      document.getElementById("languages").value //get value from select
     );
-    encodedParams.set("text", inputText);
+    encodedParams.set("text", inputText); //set text to translate
     try {
-      let detectedLanguage = "";
-      const detect = {
+      let detectedLanguage = ""; //detected language variable
+      const detect = { //detect language object
         method: "POST",
         url: "https://microsoft-translator-text.p.rapidapi.com/Detect",
         params: {
@@ -32,25 +31,24 @@ const Translator = () => {
         },
         data: [
           {
-            Text: inputText,
+            Text: inputText, //text to detect
           },
         ],
       };
 
       try {
-        const response = await axios.request(detect);
-        detectedLanguage = response.data[0].language;
+        const response = await axios.request(detect); //detect language request
+        detectedLanguage = response.data[0].language; //detected language
       } catch (error) {
         console.error(error);
       }
-      encodedParams.set("source_language", detectedLanguage);
+      encodedParams.set("source_language", detectedLanguage); //set source language
 
-      // Rest of the translation code...
     } catch (error) {
       setIsTranslated(false);
       console.error(error);
     }
-    const options = {
+    const options = { //translate options object 
       method: "POST",
       url: "https://text-translator2.p.rapidapi.com/translate",
       headers: {
@@ -62,18 +60,18 @@ const Translator = () => {
     };
 
     try {
-      const response = await axios.request(options);
+      const response = await axios.request(options); //translate request
       console.log(response.data);
 
-      if (
+      if ( //check response
         response.data &&
         response.data.status === "success" &&
         response.data.data &&
         response.data.data.translatedText
       ) {
-        const translatedText = response.data.data.translatedText;
-        setOutputText(translatedText);
-        setIsTranslated(true);
+        const translatedText = response.data.data.translatedText; //translated text
+        setOutputText(translatedText); //set output text
+        setIsTranslated(true); //set translation state
         console.log(outputText);
       } else {
         setIsTranslated(false);
@@ -86,7 +84,7 @@ const Translator = () => {
     }
   };
 
-  const clearInput = () => {
+  const clearInput = () => { //clear input function
     setInputText("");
     setOutputText("");
     setIsTranslated("");
@@ -111,12 +109,12 @@ const Translator = () => {
               <textarea
                 className="text-box"
                 placeholder="Enter text (any language)"
-                onChange={(e) => setInputText(e.target.value)}
-                value={inputText} // Aqui se declara el valor del input que se va a traducir
+                onChange={(e) => setInputText(e.target.value)} //set input text
+                value={inputText} 
               ></textarea>
-              {inputText !== "" && (
+              {inputText !== "" && ( //check input text
                 <AiOutlineClose
-                  className="icon-btn close-btn"
+                  className="icon-btn close-btn" style={{color:"red"}}
                   onClick={clearInput}
                 />
               )}
@@ -170,7 +168,6 @@ const Translator = () => {
           </div>
         </div>
       </section>
-      
 
       <div className="footer-container">
         <p className="footer-text">

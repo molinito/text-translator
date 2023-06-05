@@ -4,8 +4,7 @@
   margin: 2rem;
   color: #161010;
   padding-top: 3%;
-  font-family: 'Roboto', sans-serif;
-
+  font-family: "Roboto", sans-serif;
 }
 
 .img {
@@ -13,26 +12,19 @@
   height: 30%;
   margin: 0 auto;
   display: block;
-  /* poner un borde superior del mismo ancho del row-wrapper */
-  border-top:  rgb(233, 233, 124) 10px solid;
-
-  
-
-  
+  border-top: rgb(233, 233, 124) 10px solid;
 }
 
 .app {
   background-color: rgb(191, 255, 0);
   font-family: Arial, sans-serif;
   min-height: 100vh;
-
 }
 
 .translator {
   padding: 20px;
   display: flex;
   justify-content: center;
-
 }
 
 .footer-container {
@@ -44,12 +36,9 @@
   padding: 20px;
   font-size: 20px;
   font-family: Arial, sans-serif;
-  /* el footer se mantendrá siempre abajo */
   position: absolute;
   bottom: 0;
   width: 100%;
-  
-  
 }
 
 .footer-link {
@@ -62,8 +51,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-
-
 }
 
 .translator-container {
@@ -106,8 +93,6 @@
   font-size: large;
 }
 
-
-
 .icon-btn {
   position: absolute;
   top: 5px;
@@ -144,7 +129,6 @@
   color: #ff0000;
 }
 
-
 /* Estilos específicos para resaltar textos */
 .btn-translate:hover {
   background-color: #0056b3;
@@ -168,7 +152,6 @@
   box-shadow: 0 0 0 2px #ff3333;
 }
 
-/* Estilos para dispositivos móviles */
 @media screen and (max-width: 950px) {
   .row-wrapper {
     flex-direction: column;
@@ -188,5 +171,7 @@
     height: 60%;
   }
 
+  .footer-container {
+    font-size: 18px;
+  }
 }
-
