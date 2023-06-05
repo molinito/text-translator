@@ -1,2 +1,2 @@
 # text-translator
-A simple translator languages
+A translator languages
