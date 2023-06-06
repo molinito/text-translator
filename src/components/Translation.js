@@ -5,20 +5,22 @@ import axios from "axios";
 import img from "../img/38.png";
 
 const Translator = () => {
-  const [inputText, setInputText] = useState("");//input text state
+  const [inputText, setInputText] = useState(""); //input text state
   const [outputText, setOutputText] = useState(""); //output text state
   const [isTranslated, setIsTranslated] = useState(""); //translation state
 
-  const translate = async () => { //translate function
+  const translate = async () => {
+    //translate function
     const encodedParams = new URLSearchParams(); //URLSearchParams object
     encodedParams.set(
-      "target_language",//set target language
+      "target_language", //set target language
       document.getElementById("languages").value //get value from select
     );
     encodedParams.set("text", inputText); //set text to translate
     try {
       let detectedLanguage = ""; //detected language variable
-      const detect = { //detect language object
+      const detect = {
+        //detect language object
         method: "POST",
         url: "https://microsoft-translator-text.p.rapidapi.com/Detect",
         params: {
@@ -43,12 +45,12 @@ const Translator = () => {
         console.error(error);
       }
       encodedParams.set("source_language", detectedLanguage); //set source language
-
     } catch (error) {
       setIsTranslated(false);
       console.error(error);
     }
-    const options = { //translate options object 
+    const options = {
+      //translate options object
       method: "POST",
       url: "https://text-translator2.p.rapidapi.com/translate",
       headers: {
@@ -63,7 +65,8 @@ const Translator = () => {
       const response = await axios.request(options); //translate request
       console.log(response.data);
 
-      if ( //check response
+      if (
+        //check response
         response.data &&
         response.data.status === "success" &&
         response.data.data &&
@@ -84,7 +87,8 @@ const Translator = () => {
     }
   };
 
-  const clearInput = () => { //clear input function
+  const clearInput = () => {
+    //clear input function
     setInputText("");
     setOutputText("");
     setIsTranslated("");
@@ -93,7 +97,9 @@ const Translator = () => {
   return (
     <div className="app bg-warning">
       <h1 className="title">Languages Translator</h1>
+
       <img src={img} alt="img" className="img" />
+
       <section className="translator">
         <div className="row-wrapper">
           <div className="translator-container input-lang">
@@ -110,11 +116,12 @@ const Translator = () => {
                 className="text-box"
                 placeholder="Enter text (any language)"
                 onChange={(e) => setInputText(e.target.value)} //set input text
-                value={inputText} 
+                value={inputText}
               ></textarea>
               {inputText !== "" && ( //check input text
                 <AiOutlineClose
-                  className="icon-btn close-btn" style={{color:"red"}}
+                  className="icon-btn close-btn"
+                  style={{ color: "red" }}
                   onClick={clearInput}
                 />
               )}
@@ -135,20 +142,15 @@ const Translator = () => {
                 <option value="ja">Japanese</option>
                 <option value="pt">Portuguese</option>
                 <option value="ru">Russian</option>
-                <option value="zh-Hans">Chinese (Simplified)</option>
-                <option value="zh-Hant">Chinese (Traditional)</option>
                 <option value="ar">Arabic</option>
                 <option value="cs">Czech</option>
                 <option value="da">Danish</option>
                 <option value="fi">Finnish</option>
                 <option value="el">Greek</option>
-                <option value="ht">Haitian Creole</option>
                 <option value="he">Hebrew</option>
-                <option value="hi">Hindi</option>
                 <option value="hu">Hungarian</option>
                 <option value="id">Indonesian</option>
                 <option value="ko">Korean</option>
-                <option value="ms">Malay</option>
                 <option value="nl">Dutch</option>
                 <option value="no">Norwegian</option>
                 <option value="pl">Polish</option>
